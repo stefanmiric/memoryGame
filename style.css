@@ -1,0 +1,31 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+}
+
+#container {
+    width: 800px;
+    height: 600px;
+    display : flex;
+    flex-wrap: wrap;
+    margin: auto;
+}
+
+.memCard {
+    width: calc(25% - 10px);
+    height: calc(33.333% - 10px);
+    position : relative;
+    margin: 5px;
+    box-shadow: 1px 1px 1px;
+}
+
+.memCard:active {
+    transform: scale(0.97);
+    transition: 0.2s;
+}
