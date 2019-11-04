@@ -1,2 +1,5 @@
-var cards = document.getElementsByClassName(".square");
-var gameMode = 0;
+var cards = document.querySelectorAll('.memCard');
+
+cards.forEach(card => card.addEventListener('click', function(){
+    this.classList.toggle('flip');
+}));
