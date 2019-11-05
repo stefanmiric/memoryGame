@@ -40,8 +40,8 @@ body {
     backface-visibility: hidden;
 }
 
-.memCard.flip {
-    /* rotation to flip a card, but flips both images */
+.memCard.turn {
+    /* rotation to turn a card, but turns both images */
     transform: rotateY(180deg);
 }
 .front{
