@@ -5,11 +5,27 @@
 }
 
 body {
-    height: 100vh;
-    display: flex;
+    height: 100hv;
+}
+
+#header {
+    height: 7em;
+}
+
+#header h2 {
+    text-align : center;
+    font-size: 12mm;
+}
+
+#timer {
+    display:block;
+    text-align: center;
+    margin-top: 2mm;
+    font-size: 10mm;
 }
 
 #container {
+    display: flex;
     width: 640px;
     height: 640px;
     display : flex;
