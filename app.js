@@ -4,6 +4,7 @@ var timer = new Timer();
 document.getElementById("timer").innerHTML = game.mins + " : " + game.secs;
 
 game.shuffleArray(game.cards);
+
 let container = document.getElementById('container');
 
 game.cards.forEach(card => {
@@ -11,7 +12,7 @@ game.cards.forEach(card => {
     game.array.push(inst);
 });
 
-game.array.forEach(card => {
+game.array.forEach(card => { //creating individual dom references for cards
     let tmpDiv = document.createElement("div");
     tmpDiv.classList.add("memCard");
     tmpDiv.setAttribute("id",card.index);
@@ -32,6 +33,6 @@ game.array.forEach(card => {
     card.domRef = tmpDiv;
 });
 
-game.array.forEach(card => {
+game.array.forEach(card => { //adding event listeners
     card.domRef.addEventListener('click', card.turnCard);
 });
