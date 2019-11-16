@@ -1,116 +1,37 @@
-var cards = document.querySelectorAll('.memCard');
+var game = new Game();
+var timer = new Timer();
 
-var hasTurned = false;
-var lockBoard = false;
-var firstCard,secondCard;
-var numOfMatches = 0;
-var startedGame = false;
-var secs = 0;
-var mins = 0;
-var timerInt;
+document.getElementById("timer").innerHTML = game.mins + " : " + game.secs;
 
-document.getElementById("timer").innerHTML = mins + " : " + secs;
+game.shuffleArray(game.cards);
+let container = document.getElementById('container');
 
-function changeValue(){
+game.cards.forEach(card => {
+    let inst = new Card(card, game.index++);
+    game.array.push(inst);
+});
 
-    var tmp;
-    secs++;
-    
-    [mins, tmp] = [Math.floor(secs / 60), secs % 60];
-    
-    document.getElementById("timer").innerHTML = mins + " : " + tmp;
-}
-
-function startTimer(){
-
-    stopTimer();
-    secs = 0;
-    timerInt =  setInterval(changeValue, 1000);
-}
-
-function stopTimer(){
-
-    clearInterval(timerInt);
-}
-
-function turnCard() {
-
-    if(!startedGame){
-        startedGame = true;
-        startTimer();
-    }
+game.array.forEach(card => {
+    let tmpDiv = document.createElement("div");
+    tmpDiv.classList.add("memCard");
+    tmpDiv.setAttribute("id",card.index);
 
 
-    if(lockBoard) return;
-    if(this === firstCard) return;
-    this.classList.add('turn');
-    
-    if(!hasTurned){
-        hasTurned = true;
-        firstCard = this;
-        return;
-    }
+    let img1 = document.createElement("img");
+    let img2 = document.createElement("img");
+    img1.setAttribute("src", "img/" + card.name + ".svg");
+    img1.classList.add("front");
 
-    secondCard = this;
-    // hasTurned = false;
+    img2.setAttribute("src", "img/javascript.svg");
+    img2.classList.add("back");
 
-    checkMatch();
-    if(numOfMatches === 6){
-        stopTimer();
-        setTimeout(endGame,100);
-    };
-}
+    tmpDiv.appendChild(img1);
+    tmpDiv.appendChild(img2);
 
-function checkMatch() {
+    container.appendChild(tmpDiv);
+    card.domRef = tmpDiv;
+});
 
-    if(firstCard.dataset.framework === secondCard.dataset.framework){
-        lockCards();
-        numOfMatches ++;
-        return;
-    }
-
-    unturnCards();
-}
-
-function unturnCards() {
-
-    lockBoard = true;
-
-    setTimeout(function(){
-        firstCard.classList.remove("turn");
-        secondCard.classList.remove("turn");
-        // lockBoard = false;
-        resetBoard();
-    }, 1000);
-}
-
-function lockCards() {
-
-    firstCard.removeEventListener('click', turnCard);
-    secondCard.removeEventListener('click',turnCard);
-
-    resetBoard();
-}
-
-function resetBoard(){
-
-    [firstCard, secondCard] = [null, null];
-    [hasTurned, lockBoard] = [false, false];
-}
-
-function endGame(){
-
-    alert("CONGRATULATIONS! YOU BEAT THE GAME IN " + document.getElementById("timer").innerHTML);
-}
-
-//IIFE to shuffle immediately
-(function shuffleCards(){
-    cards.forEach(card => {
-        var pos = Math.floor(Math.random() * 12);
-        card.style.order = pos;
-    });
-})();
-
-
-
-cards.forEach(card => card.addEventListener('click', turnCard));
+game.array.forEach(card => {
+    card.domRef.addEventListener('click', card.turnCard);
+});
