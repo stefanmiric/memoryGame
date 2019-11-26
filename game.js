@@ -58,6 +58,7 @@ class Game {
             this.array[this.secondCard.id].domRef.classList.remove("turn");
             // lockBoard = false;
             this.resetBoard();
+            console.log(this);
         }, 1000); //giving player a second to try and memorize the cards
     }
 
@@ -80,5 +81,58 @@ class Game {
     endGame(){
 
         alert("CONGRATULATIONS! YOU BEAT THE GAME IN " + document.getElementById("timer").innerHTML);
+    }
+
+    resetGame(){
+
+        let cont = document.getElementById("container");
+        while(cont.firstChild){
+            cont.removeChild(cont.firstChild);
+        }
+        timer.resetTimer();
+        game.startedGame = false;
+        game.numOfMatches = 0;
+
+        game.startGame();
+        
+    }
+
+    startGame() {
+
+        this.array = [];
+        this.index = 0;
+
+
+        this.shuffleArray(this.cards);
+
+        this.cards.forEach(card => {
+            let inst = new Card(card, this.index++);
+            this.array.push(inst);
+        });
+
+        this.array.forEach(card => { //creating individual dom references for cards
+            let tmpDiv = document.createElement("div");
+            tmpDiv.classList.add("memCard");
+            tmpDiv.setAttribute("id",card.index);
+        
+        
+            let img1 = document.createElement("img");
+            let img2 = document.createElement("img");
+            img1.setAttribute("src", "img/" + card.name + ".svg");
+            img1.classList.add("front");
+        
+            img2.setAttribute("src", "img/javascript.svg");
+            img2.classList.add("back");
+        
+            tmpDiv.appendChild(img1);
+            tmpDiv.appendChild(img2);
+        
+            container.appendChild(tmpDiv);
+            card.domRef = tmpDiv;
+        });
+        
+        this.array.forEach(card => { //adding event listeners
+            card.domRef.addEventListener('click', card.turnCard);
+        });
     }
 }

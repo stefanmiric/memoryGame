@@ -21,4 +21,11 @@ class Timer{
 
         clearInterval(game.timerInt);
     }
+
+    resetTimer(){
+        this.stopTimer();
+        [game.secs, game.mins] = [0, 0];
+        document.getElementById("timer").innerHTML = game.mins + " : " + game.secs;
+
+    }
 }

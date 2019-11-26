@@ -2,7 +2,7 @@ var game = new Game();
 var timer = new Timer();
 
 document.getElementById("timer").innerHTML = game.mins + " : " + game.secs;
-
+document.getElementById("reset").addEventListener('click', game.resetGame);
 game.shuffleArray(game.cards);
 
 let container = document.getElementById('container');
