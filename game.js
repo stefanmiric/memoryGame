@@ -2,7 +2,8 @@ class Game {
     constructor(){
 
         this.cards = ["react", "react", "angular", "angular", "ember", "ember",
-             "vuejs", "vuejs", "meteor", "meteor", "aurelia", "aurelia"]; //array used for random shuffling
+             "vuejs", "vuejs", "meteor", "meteor", "aurelia", "aurelia", "nodejs", "nodejs",
+             "cordova", "cordova", "jest", "jest", "mocha", "mocha"]; //array used for random shuffling
 
         this.index = 0;
         this.array = []; //array containing Card objects
