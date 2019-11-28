@@ -35,7 +35,7 @@ class Card {
         game.checkMatch();
 
         //check if the player won
-        if(game.numOfMatches === 10){
+        if(game.numOfMatches === game.totalNumOfPairs){
             timer.stopTimer();
             setTimeout(game.endGame,100);
         };

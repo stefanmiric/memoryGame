@@ -14,10 +14,12 @@ class Game {
         this.firstCard;
         this.secondCard;
         this.numOfMatches = 0;
+        this.totalNumOfPairs = 6;
         this.startedGame = false;
         this.secs = 0;
         this.mins = 0;
         this.timerInt; //timer interval id
+        this.Cardcss = [];
     }
 
     shuffleArray(array) {
@@ -134,6 +136,14 @@ class Game {
         });
         
         this.array.forEach(card => { //adding event listeners
+            if(this.totalNumOfPairs === 6){
+                //easy
+                card.domRef.classList.add('easy');
+            }
+            else {
+                //hard
+                card.domRef.classList.add('hard');
+            }
             card.domRef.addEventListener('click', card.turnCard);
         });
     }
@@ -144,6 +154,14 @@ class Game {
         }
         else {
             game.cards.push(...game.cardsHard);
+            game.totalNumOfPairs = 10;
+
+            game.Cardcss = document.getElementsByClassName("memCard");
+            for(let i=0; i < game.Cardcss.length; i++){
+                game.Cardcss[i].style.height = "calc(25% - 10px)";
+                game.Cardcss[i].style.width = "calc(20% - 10px)";
+            }
+
             game.resetGame();
         }
     }
@@ -154,6 +172,13 @@ class Game {
         }
         else {
             game.cards = game.cards.filter( ( el ) => !game.cardsHard.includes( el ) );
+            game.totalNumOfPairs = 6;
+
+            game.Cardcss = document.getElementsByClassName("memCard");
+            for(let i=0; i < game.Cardcss.length; i++){
+                game.Cardcss[i].style.height = "calc(33.333% - 10px)";
+                game.Cardcss[i].style.width = "calc(25% - 10px)";
+            }
             game.resetGame();
         }
     }

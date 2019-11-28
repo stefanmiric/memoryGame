@@ -34,8 +34,6 @@ body {
 }
 
 .memCard {
-    width: calc(20% - 10px);
-    height: calc(25% - 10px);
     position : relative;
     margin: 5px;
     transform-style: preserve-3d;
@@ -44,6 +42,16 @@ body {
 .memCard:active {
     transform: scale(0.97);
     transition: 0.2s;
+}
+
+.easy {
+    width: calc(25% - 10px);
+    height: calc(33.333% - 10px);
+}
+
+.hard {
+    width: calc(20% - 10px);
+    height: calc(25% - 10px);
 }
 
 .front,
