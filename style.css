@@ -6,6 +6,9 @@
 
 body {
     height: 100vh;
+    background-image: url(img/bckground.jpg);
+    background-size: cover;
+
 }
 
 #header {
@@ -60,7 +63,7 @@ body {
     width: 100%;
     padding: 20px;
     position: absolute;
-    background: cornflowerblue;
+    /* background: cornflowerblue; */
     backface-visibility: hidden;
 }
 
