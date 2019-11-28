@@ -12,10 +12,12 @@ body {
 }
 
 #header {
-    height: 7em;
+    width: 100vw;
+    color: whitesmoke;
 }
 
 #header h2 {
+    display: block;
     text-align : center;
     font-size: 12mm;
 }
@@ -71,7 +73,27 @@ body {
     /* rotation to turn a card, but turns both images */
     transform: rotateY(180deg);
 }
-.front{
+.front {
     /* rotation to show the logo when the back side is turned */
     transform: rotateY(180deg);
 }
+
+button {
+    width: 2cm;
+    position: absolute;
+}
+#easy{
+    left: 55%;
+    top: 8%;
+} 
+#hard{
+    left: 60%;
+    top: 8%;
+}
+#reset{
+    left: 40%;
+    top: 8%;
+}
+
+
+

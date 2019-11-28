@@ -156,11 +156,11 @@ class Game {
             game.cards.push(...game.cardsHard);
             game.totalNumOfPairs = 10;
 
-            game.Cardcss = document.getElementsByClassName("memCard");
-            for(let i=0; i < game.Cardcss.length; i++){
-                game.Cardcss[i].style.height = "calc(25% - 10px)";
-                game.Cardcss[i].style.width = "calc(20% - 10px)";
-            }
+            // game.Cardcss = document.getElementsByClassName("memCard");
+            // for(let i=0; i < game.Cardcss.length; i++){
+            //     game.Cardcss[i].style.height = "calc(25% - 10px)";
+            //     game.Cardcss[i].style.width = "calc(20% - 10px)";
+            // }
 
             game.resetGame();
         }
@@ -174,11 +174,11 @@ class Game {
             game.cards = game.cards.filter( ( el ) => !game.cardsHard.includes( el ) );
             game.totalNumOfPairs = 6;
 
-            game.Cardcss = document.getElementsByClassName("memCard");
-            for(let i=0; i < game.Cardcss.length; i++){
-                game.Cardcss[i].style.height = "calc(33.333% - 10px)";
-                game.Cardcss[i].style.width = "calc(25% - 10px)";
-            }
+            // game.Cardcss = document.getElementsByClassName("memCard");
+            // for(let i=0; i < game.Cardcss.length; i++){
+            //     game.Cardcss[i].style.height = "calc(33.333% - 10px)";
+            //     game.Cardcss[i].style.width = "calc(25% - 10px)";
+            // }
             game.resetGame();
         }
     }
