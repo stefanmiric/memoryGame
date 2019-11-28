@@ -2,9 +2,10 @@ class Game {
     constructor(){
 
         this.cards = ["react", "react", "angular", "angular", "ember", "ember",
-             "vuejs", "vuejs", "meteor", "meteor", "aurelia", "aurelia", "nodejs", "nodejs",
-             "cordova", "cordova", "jest", "jest", "mocha", "mocha"]; //array used for random shuffling
-
+             "vuejs", "vuejs", "meteor", "meteor", "aurelia", "aurelia"]; //array used for random shuffling
+        
+        this.cardsHard = ["nodejs", "nodejs",
+        "cordova", "cordova", "jest", "jest", "mocha", "mocha"];
         this.index = 0;
         this.array = []; //array containing Card objects
         
@@ -135,5 +136,25 @@ class Game {
         this.array.forEach(card => { //adding event listeners
             card.domRef.addEventListener('click', card.turnCard);
         });
+    }
+
+    startHard() {
+        if(game.cards.length === 20){
+            game.resetGame();
+        }
+        else {
+            game.cards.push(...game.cardsHard);
+            game.resetGame();
+        }
+    }
+
+    startEasy() {
+        if(game.cards.length === 12){
+            game.resetGame();
+        }
+        else {
+            game.cards = game.cards.filter( ( el ) => !game.cardsHard.includes( el ) );
+            game.resetGame();
+        }
     }
 }

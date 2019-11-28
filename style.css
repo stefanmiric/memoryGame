@@ -5,7 +5,7 @@
 }
 
 body {
-    height: 100hv;
+    height: 100vh;
 }
 
 #header {
@@ -26,8 +26,8 @@ body {
 
 #container {
     display: flex;
-    width: 800px;
-    height: 600px;
+    width: 50%;
+    height: 75%;
     display : flex;
     flex-wrap: wrap;
     margin: auto;
@@ -35,7 +35,7 @@ body {
 
 .memCard {
     width: calc(20% - 10px);
-    height: calc(33.333% - 10px);
+    height: calc(25% - 10px);
     position : relative;
     margin: 5px;
     transform-style: preserve-3d;
