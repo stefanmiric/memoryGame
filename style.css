@@ -80,6 +80,7 @@ body {
     transform: rotateY(180deg);
 }
 
+/* buttons and timer */
 #addons {
     display: flex;
     width: 30%;
