@@ -13,21 +13,23 @@ body {
 
 #header {
     width: 100vw;
+    height: 15%;
     color: whitesmoke;
 }
 
 #header h2 {
     display: block;
-    text-align : center;
+    text-align: center;
     font-size: 12mm;
 }
 
-#timer {
-    display:block;
+/* #timer {
+    position: absolute;
     text-align: center;
-    margin-top: 2mm;
+    left: 42%;
+    top: 8%;
     font-size: 10mm;
-}
+} */
 
 #container {
     display: flex;
@@ -78,22 +80,18 @@ body {
     transform: rotateY(180deg);
 }
 
-button {
-    width: 2cm;
-    position: absolute;
-}
-#easy{
-    left: 55%;
-    top: 8%;
-} 
-#hard{
-    left: 60%;
-    top: 8%;
-}
-#reset{
-    left: 40%;
-    top: 8%;
+#addons {
+    display: flex;
+    width: 30%;
+    height: 70%;
+    flex-wrap: nowrap;
+    margin: auto;
 }
 
+#reset,#timer,#modes {
+    margin: auto;
+}
 
-
+#timer {
+    font-size: 5px;
+}

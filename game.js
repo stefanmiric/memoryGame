@@ -5,7 +5,8 @@ class Game {
              "vuejs", "vuejs", "meteor", "meteor", "aurelia", "aurelia"]; //array used for random shuffling
         
         this.cardsHard = ["nodejs", "nodejs",
-        "cordova", "cordova", "jest", "jest", "mocha", "mocha"];
+        "cordova", "cordova", "jest", "jest", "mocha", "mocha"]; //additional cards used for hard game mode
+
         this.index = 0;
         this.array = []; //array containing Card objects
         
@@ -94,7 +95,7 @@ class Game {
             cont.removeChild(cont.firstChild);
         }
         timer.resetTimer();
-        game.startedGame = false;
+        game.startedGame = false; //(this) is a html reference, not game object
         game.numOfMatches = 0;
 
         game.startGame();
