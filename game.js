@@ -20,6 +20,10 @@ class Game {
         this.secs = 0;
         this.mins = 0;
         this.timerInt; //timer interval id
+        this.resetGame = this.resetGame.bind(this); //binding game instance as this
+        this.startEasy = this.startEasy.bind(this);
+        this.startHard = this.startHard.bind(this);
+
     }
 
     shuffleArray(array) {
@@ -94,10 +98,10 @@ class Game {
             cont.removeChild(cont.firstChild);
         }
         timer.resetTimer();
-        game.startedGame = false; //(this) is a html reference, not game object
-        game.numOfMatches = 0;
+        this.startedGame = false; //(this) is a html reference, not game object
+        this.numOfMatches = 0;
 
-        game.startGame();
+        this.startGame();
         
     }
 
@@ -149,26 +153,26 @@ class Game {
     }
 
     startHard() {
-        if(game.cards.length === 20){
-            game.resetGame();
+        if(this.cards.length === 20){
+            this.resetGame();
         }
         else {
-            game.cards.push(...game.cardsHard);
-            game.totalNumOfPairs = 10;
+            this.cards.push(...this.cardsHard);
+            this.totalNumOfPairs = 10;
 
-            game.resetGame();
+            this.resetGame();
         }
     }
 
     startEasy() {
-        if(game.cards.length === 12){
-            game.resetGame();
+        if(this.cards.length === 12){
+            this.resetGame();
         }
         else {
-            game.cards = game.cards.filter( ( el ) => !game.cardsHard.includes( el ) );
-            game.totalNumOfPairs = 6;
+            this.cards = this.cards.filter( ( el ) => !this.cardsHard.includes( el ) );
+            this.totalNumOfPairs = 6;
 
-            game.resetGame();
+            this.resetGame();
         }
     }
 }
