@@ -98,7 +98,7 @@ class Game {
             cont.removeChild(cont.firstChild);
         }
         timer.resetTimer();
-        this.startedGame = false; //(this) is a html reference, not game object
+        this.startedGame = false; //(this) is a html reference, not game object EDIT: not anymore, explicit binding in constructor
         this.numOfMatches = 0;
 
         this.startGame();
