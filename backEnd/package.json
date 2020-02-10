@@ -4,7 +4,11 @@
   "description": "API for getting and posting scores",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "docker-up": "docker-compose up -d",
+    "docker-stop": "docker stop mirke_mongo mirke_mongo_express",
+    "docker-rm" : "docker rm mirke_mongo mirke_mongo_express",
+    "docker-ls" : "docker ps -a"
   },
   "keywords": [],
   "author": "",

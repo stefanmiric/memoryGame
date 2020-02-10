@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 
 import "./App.css";
@@ -8,10 +9,13 @@ import MenuBar from "../MenuBar";
 
 const App = () => (
     <div className="app">
-        <MenuBar />
-        <EntryList/>
-
+      <BrowserRouter>
+        <Switch>
+          <Route exact path="/" component={MenuBar} />
+          <Route exact path="/leaderboard" component={EntryList} />
+        </Switch>
+      </BrowserRouter>
     </div>
-);
-
+  );
+  
 export default App;

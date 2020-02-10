@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const UserController = require('./controllers/UserControllers');
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = 5000;
 
 app.use(bodyParser.urlencoded( {extended : true} ));
 

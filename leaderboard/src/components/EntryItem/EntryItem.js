@@ -1,16 +1,18 @@
 import React from "react";
 
 
-const EntryItem = props => (
-    <div className="entry-item">
-        <div className="ui card">
+const EntryItem = props => {
+
+    console.log(props);
+    console.log("dsafa");
+
+return <div className="entry-item">
             <div className="content">
-                <div className="header">
-                    {props.entry.name} - {props.entry.phone}
+                <div className="board">
+                    <p>{props.entry.name} - {props.entry.phone}</p>
                 </div>
             </div>
-        </div>
     </div>
-);
+};
 
 export default EntryItem;

@@ -11,10 +11,12 @@ class EntryList extends React.Component {
 
     componentDidMount() {
         this.fetchEntries();
-      }
+    }
 
     render(){
-        return this.state.entries ? this.renderList() : this.loader();
+        console.log(this.state)
+        return this.state.entries.length !== 0 ? this.renderList() : this.loader();
+        // return this.renderList();
     }
 
     loader = () => <div>No entries yet...</div>;
@@ -23,22 +25,18 @@ class EntryList extends React.Component {
         <div className="entry-list">
             {this.state.entries.map(entry => (
                 <EntryItem 
-                key = {entry.id}
+                key = {entry.name + entry.id}
                 entry = {entry}
-                delete = {this.deleteEntry}
                 />
             ))}
         </div>
     );
 
     fetchEntries() {
-        entriesApi.getEntries().then(entries => this.setState({ entries }));
-    }
-
-    deleteEntry = id => {
-        entriesApi.deleteEntry(id).then(() => this.fetchEntries());
+        // entriesApi.getEntries().then(entries => this.setState({ entries }));
+        this.setState({entries: [{id : 0, name: "stefan", email: "sa", phone: 1}] });
     }
 
 }
 
-export default EntryList;
+export default EntryList; 

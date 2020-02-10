@@ -6,8 +6,6 @@ class MongodbService{
         this.url = url;
         this.dbname = dbname;
     }
-    
-
 
     async connect() {
         const connect = util.promisify(mongoClient.connect);
@@ -30,46 +28,6 @@ class MongodbService{
         });
     }
 
-
-    findOne(collection, parameters) {
-        return new Promise((resolve, reject) => {
-            this.database.collection(collection).findOne(parameters, function (error, data) {
-                if (error) reject();
-
-                resolve(data);
-            });
-        });
-    }
-
-    insert(collection, parameters) {
-        return new Promise((resolve, reject) => {
-            this.database.collection(collection).insertOne(parameters, function (error) {
-                if (error) reject();
-
-                resolve();
-            });
-        });
-    }
-
-    update(collection, findParameters, setParameters) {
-        return new Promise((resolve, reject) => {
-            this.database.collection(collection).updateOne(findParameters, {$set : setParameters} ,function (error) {
-                if (error) reject();
-
-                resolve();
-            });
-        });
-    }
-
-    find(collection, parameters) {
-        return new Promise((resolve, reject) => {
-            this.database.collection(collection).deleteOne(parameters, function (error) {
-                if (error) reject();
-
-                resolve();
-            });
-        });
-    }
 }
 
 module.exports = MongodbService;

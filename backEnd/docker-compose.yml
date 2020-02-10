@@ -1,6 +1,7 @@
 version: '3'
 services:
   mongo:
+    container_name: mirke_mongo
     image: mongo
     restart: always
     ports:
@@ -10,9 +11,10 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: example
       MONGO_INITDB_DATABASE: MongoBase
     volumes:
-      - ./docker-entrypoint-initdb/mongo-init.js:/docker-entrypoint-initdb/mongo-init.js:ro
+      - ./docker-entrypoint-initdb.d/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
 
   mongo-express:
+    container_name: mirke_mongo_express
     image: mongo-express
     restart: always
     ports:
