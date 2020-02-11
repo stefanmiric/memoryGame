@@ -7,14 +7,15 @@
     "start": "node index.js",
     "docker-up": "docker-compose up -d",
     "docker-stop": "docker stop mirke_mongo mirke_mongo_express",
-    "docker-rm" : "docker rm mirke_mongo mirke_mongo_express",
-    "docker-ls" : "docker ps -a"
+    "docker-rm": "docker rm mirke_mongo mirke_mongo_express",
+    "docker-ls": "docker ps -a"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "mongodb": "^3.4.0"
   }

@@ -12,11 +12,17 @@ class EntriesApi {
   }
 
   getEntries() {
+    console.log("usao u geetEntries");
     return this.httpClient
       .get("/users")
-      .then(response =>
-        response.data
-      );
+      .then(response => {
+        console.log("response sa baze")
+        console.log(response)
+        return response.data
+      }
+      )
+      .catch(error => {console.log(error)
+      return [0]});
   }
 }
 export default new EntriesApi();

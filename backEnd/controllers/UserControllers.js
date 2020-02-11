@@ -22,8 +22,9 @@ class UserController{
         await this.mongoDBService.connect();
         let users = await this.mongoDBService.find('users');
         console.log(users);
-        this.mongoDBService.disconnect();
         this.response.send(users);
+        this.mongoDBService.disconnect();
+
     }
 
 }

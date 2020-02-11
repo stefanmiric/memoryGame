@@ -33,8 +33,12 @@ class EntryList extends React.Component {
     );
 
     fetchEntries() {
-        // entriesApi.getEntries().then(entries => this.setState({ entries }));
-        this.setState({entries: [{id : 0, name: "stefan", email: "sa", phone: 1}] });
+        entriesApi.getEntries().then(entries => {
+            console.log(entries);
+            return this.setState({ entries })
+            
+        });
+        // this.setState({entries: [{id : 0, name: "stefan", email: "sa", phone: 1}] });
     }
 
 }
