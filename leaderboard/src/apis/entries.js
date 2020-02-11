@@ -22,7 +22,7 @@ class EntriesApi {
       }
       )
       .catch(error => {console.log(error)
-      return [0]});
+      return [{id: 1, name : "stefan"},{ id: 2, name: "matija"}] });
   }
 }
 export default new EntriesApi();

@@ -1,15 +1,17 @@
 import React from "react";
 import {Link} from "react-router-dom"
+import { Button, Header } from 'semantic-ui-react'
+
 import "./MenuBar.css";
 
 
 const MenuBar = () => (
   <div className="page">
-  <p>
-    MemoryGame leaderboard:
-  </p>
-  <Link to="/leaderboard" className="link">Highscores</Link>
-</div>
+    <Header as='h1'>Memory Game leaderboard</Header>
+
+    <Button primary as={Link} to="/leaderboard"> Highscores </Button>
+  
+  </div>
   
 );
 
