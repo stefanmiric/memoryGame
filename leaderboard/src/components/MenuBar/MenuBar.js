@@ -7,9 +7,9 @@ import "./MenuBar.css";
 
 const MenuBar = () => (
   <div className="page">
-    <Header as='h1'>Memory Game leaderboard</Header>
+    <Header as='h1' color="yellow">Memory Game Leaderboard</Header>
 
-    <Button primary as={Link} to="/leaderboard"> Highscores </Button>
+    <Button secondary as={Link} to="/leaderboard"> Highscores </Button>
   
   </div>
   

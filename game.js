@@ -89,6 +89,7 @@ class Game {
     endGame(){
 
         alert("CONGRATULATIONS! YOU BEAT THE GAME IN " + document.getElementById("timer").innerHTML);
+        //send results to server
     }
 
     resetGame(){
