@@ -28,6 +28,17 @@ class MongodbService{
         });
     }
 
+    insert(collection, parameters) {
+        return new Promise((resolve, reject) => {
+            this.database.collection(collection).insertOne(parameters, (error) => {
+                if (error) {
+                    reject();
+                }
+                resolve();
+            });
+        });
+    }
+
 }
 
 module.exports = MongodbService;

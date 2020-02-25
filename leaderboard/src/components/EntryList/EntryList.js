@@ -25,7 +25,7 @@ class EntryList extends React.Component {
         <div className="entry-list">
             {this.state.entries.map(entry => (
                 <EntryItem 
-                key = {entry.name + entry.id}
+                key = {entry.name + entry.time + entry.difficulty}
                 entry = {entry}
                 />
             ))}

@@ -22,7 +22,7 @@ class EntriesApi {
       }
       )
       .catch(error => {console.log(error)
-      return [{id: 1, name : "stefan", difficulty : "hard", time : "00:24"},{ id: 2, name: "matija", difficulty : "easy", time : "01:30"}] });
+      return [{name : "stefan", difficulty : "hard", time : "00:24"},{ name: "matija", difficulty : "easy", time : "01:30"}] });
   }
 }
 export default new EntriesApi();

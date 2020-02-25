@@ -88,8 +88,28 @@ class Game {
 
     endGame(){
 
-        alert("CONGRATULATIONS! YOU BEAT THE GAME IN " + document.getElementById("timer").innerHTML);
+        let difficulty = game.cards.length === 12 ? "easy" : "hard";
+        let time = document.getElementById("timer").innerHTML;
+
+        let user = window.prompt("CONGRATULATIONS! YOU BEAT THE GAME IN " + time + "\n"
+                                + "ON " + difficulty + " DIFFICULTY\n"
+                                + "ENTER YOUR NAME");
         //send results to server
+        let req = new XMLHttpRequest();
+        req.open('POST', 'http://localhost:5000/users');
+        req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        req.onreadystatechange = () => {
+            if (req.readyState === XMLHttpRequest.DONE){
+                let status = req.status;
+                if (status === 0 || (200 <= status && status < 400)){
+                    console.log(req.esponseText);
+                }
+                else {
+                    console.log('Ajax Error: ' + req.status);
+                }
+            }
+        }
+        req.send(`name=${user}&difficulty=${difficulty}&time=${time}`);
     }
 
     resetGame(){

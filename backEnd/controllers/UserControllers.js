@@ -15,16 +15,30 @@ class UserController{
         app.get('/users', (request, response) => {
             new UserController(request, response).getUsers();
         });
+
+        app.post('/users', (request, response) => {
+            new UserController(request,response).postUser();
+        })
     }
 
     async getUsers(){
-        console.log("usli u getusers");
         await this.mongoDBService.connect();
         let users = await this.mongoDBService.find('users');
-        console.log(users);
         this.response.send(users);
         this.mongoDBService.disconnect();
+    }
 
+    async postUser(){
+        await this.mongoDBService.connect();
+
+        await this.mongoDBService.insert('users', {
+            name : this.request.body.name,
+            difficulty : this.request.body.difficulty,
+            time : this.request.body.time
+        });
+        
+        this.mongoDBService.disconnect();
+        this.response.json({ status: 'Success' });
     }
 
 }
