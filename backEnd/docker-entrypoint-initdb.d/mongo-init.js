@@ -1,15 +1,13 @@
 let users = [
     {
-      "id": 1,
       "name": "Frodo Baggins",
-      "email": "frodohasthering@lotr.com",
-      "phone": "00000000001"
+      "difficulty": "hard",
+      "time": "0:01"
     },
     {
-      "id": 2,
       "name": "Smeagol Gollum",
-      "email": "myprecious@gmail.com",
-      "phone": "00000000002"
+      "difficulty": "easy",
+      "time": "0:15"
     }
   ];
   
